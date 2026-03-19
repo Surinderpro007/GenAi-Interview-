@@ -43,22 +43,29 @@ const MultiStepLoader = ({ loading }) => {
       return;
     }
 
-    let step = 0;
+    // Reset cleanly every time loading starts
+    setCurrentStep(0);
+    setCompletedSteps([]);
+
+    let activeStep = 0;
 
     const interval = setInterval(() => {
-      // Mark current step as completed
-      setCompletedSteps((c) => {
-        if (c.includes(step)) return c; // guard against duplicates
-        return [...c, step];
-      });
+      const doneStep = activeStep;
 
-      if (step >= loadingSteps.length - 1) {
+      // Mark current step as completed (checkmark)
+      setCompletedSteps((prev) =>
+        prev.includes(doneStep) ? prev : [...prev, doneStep]
+      );
+
+      activeStep += 1;
+
+      if (activeStep >= loadingSteps.length) {
+        // All steps done — stop
         clearInterval(interval);
-        return;
+      } else {
+        // Move spinner to next step
+        setCurrentStep(activeStep);
       }
-
-      step += 1;
-      setCurrentStep(step);
     }, 1800);
 
     return () => clearInterval(interval);
@@ -374,7 +381,7 @@ const MultiStepLoader = ({ loading }) => {
           <div className="msl-steps">
             {loadingSteps.map((step, i) => {
               const isDone = completedSteps.includes(i);
-              const isActive = currentStep === i;
+              const isActive = !isDone && currentStep === i; // can't be active if already done
               const stepClass = isDone ? "completed" : isActive ? "active" : "upcoming";
 
               return (
