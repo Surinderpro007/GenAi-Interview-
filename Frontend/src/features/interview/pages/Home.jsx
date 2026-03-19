@@ -4,7 +4,7 @@ import "../style/home.scss";
 import { useState } from "react";
 import { useRef } from "react";
 import {useNavigate} from "react-router-dom"
-import MultiStepLoader from "./MultistepLoader";
+import MultiStepLoader from "./MultiStepLoader";
 
 const Home = () => { 
   const {loading, generateReport} = useInterview()
