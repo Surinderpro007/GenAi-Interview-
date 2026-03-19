@@ -16,10 +16,6 @@ app.use(cors({
 const authRouter = require('./routes/auth.routes');
 const interviewRouter = require('./routes/interview.routes')
 
-app.get("/", (req, res) => {
-  res.send("Backend is running 🚀");
-});
-
 // Use all routes here
 app.use('/api/auth', authRouter);
 app.use('/api/interview', interviewRouter);
