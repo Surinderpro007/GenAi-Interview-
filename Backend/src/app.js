@@ -8,7 +8,11 @@ global.DOMMatrix = DOMMatrix;
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'http://localhost:5173',
+   origin: [
+        'https://gen-ai-interview.vercel.app',
+        'https://gen-ai-interview-git-main-surind4r.vercel.app',
+        'http://localhost:5173'
+    ],
     credentials: true
 }))
 
