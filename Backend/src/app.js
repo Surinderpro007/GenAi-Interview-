@@ -2,8 +2,12 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const { DOMMatrix } = require('canvas');
-global.DOMMatrix = DOMMatrix;
+try {
+    const { DOMMatrix } = require('canvas');
+    global.DOMMatrix = DOMMatrix;
+} catch(e) {
+    console.log('Canvas not available:', e.message);
+}
 
 app.use(express.json());
 app.use(cookieParser());
