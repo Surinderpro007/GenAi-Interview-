@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const api = axios.create({
-     baseURL: 'genai-interview-production.up.railway.app',
+     baseURL: 'https://genai-interview-production.up.railway.app',
      withCredentials:true,
 })
 
