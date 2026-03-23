@@ -81,10 +81,13 @@ const Home = () => {
             <textarea
             onChange={(e)=>setJobDescription(e.target.value)}
               className="panel__textarea"
+              value={jobDescription}
               placeholder={`Paste the full job description here...\ne.g. 'Senior Frontend Engineer at Google requires proficiency in React, TypeScript, and large-scale system design...'`}
               maxLength={5000}
             />
-            <div className="char-counter">0 / 5000 chars</div>
+          <div className="char-counter" style={{ color: jobDescription.length >= 4500 ? jobDescription.length >= 5000 ? "red" : "orange" : "inherit" }}>
+  {jobDescription.length} / 5000 chars &nbsp;·&nbsp; {5000 - jobDescription.length} remaining
+</div>
           </div>
 
           {/* Vertical Divider */}
@@ -163,11 +166,16 @@ const Home = () => {
               </label>
               <textarea
                 onChange={(e)=>setSelfDescription(e.target.value)}
+                value={selfDescription}
                 id="selfDescription"
                 name="selfDescription"
                 className="panel__textarea panel__textarea--short"
                 placeholder="Briefly describe your experience, key skills, and years of experience if you don't have a resume handy..."
+                 maxLength={1000}
               />
+              <div className="char-counter" style={{ color: selfDescription.length >= 900 ? selfDescription.length >= 1000 ? "red" : "orange" : "inherit" }}>
+  {selfDescription.length} / 1000 chars &nbsp;·&nbsp; {1000 - selfDescription.length} remaining
+</div>
             </div>
 
             {/* Info Box */}
