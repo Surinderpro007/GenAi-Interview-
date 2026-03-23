@@ -4,7 +4,7 @@ import "../style/home.scss";
 import { useState } from "react";
 import { useRef } from "react";
 import {useNavigate} from "react-router-dom"
-import MultiStepLoader from "./MultiStepLoader";
+// import MultiStepLoader from "./MultiStepLoader";
 
 const Home = () => { 
   const {loading, generateReport} = useInterview()
@@ -28,16 +28,16 @@ const Home = () => {
 }
 
 
-  // if(loading){
-  //   return(
-  //     <main className="loading-screen">
-  //       <h1>Loading Your Interview Plan</h1>
-  //     </main>
-  //   )
-  // }
-  if (loading) {
-    return <MultiStepLoader loading={loading} />;
+  if(loading){
+    return(
+      <main className="loading-screen">
+        <h1>Loading Your Interview Plan</h1>
+      </main>
+    )
   }
+  // if (loading) {
+  //   return <MultiStepLoader loading={loading} />;
+  // }
 
 
   return (
