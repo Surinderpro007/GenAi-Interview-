@@ -86,7 +86,7 @@ const Home = () => {
               maxLength={5000}
             />
           <div className="char-counter" style={{ color: jobDescription.length >= 4500 ? jobDescription.length >= 5000 ? "red" : "orange" : "inherit" }}>
-  {jobDescription.length} / 5000 chars &nbsp;·&nbsp; {5000 - jobDescription.length} remaining
+  {jobDescription.length} / 5000 chars 
 </div>
           </div>
 
@@ -174,7 +174,7 @@ const Home = () => {
                  maxLength={1000}
               />
               <div className="char-counter" style={{ color: selfDescription.length >= 900 ? selfDescription.length >= 1000 ? "red" : "orange" : "inherit" }}>
-  {selfDescription.length} / 1000 chars &nbsp;·&nbsp; {1000 - selfDescription.length} remaining
+  {selfDescription.length} / 1000 chars
 </div>
             </div>
 
